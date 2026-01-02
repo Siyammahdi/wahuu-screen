@@ -42,7 +42,7 @@ export default function ProjectIntroPage() {
         >
           Building a Smarter Way to
           <br />
-          Connect Talent & Opportunity
+          Connect Talent & Opportunity with Wahuu Screen
         </motion.h1>
 
         {/* Subtitle */}
