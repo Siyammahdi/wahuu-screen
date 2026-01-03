@@ -1,7 +1,9 @@
 "use client";
 
+import React from "react";
+
 import { motion } from "framer-motion";
-import { ArrowRight, Briefcase, Users, BookOpen, Star } from "lucide-react";
+import { ArrowRight, Briefcase, Users, BookOpen } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -33,13 +35,13 @@ export default function HomePage() {
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 rounded-lg bg-black px-6 py-3 text-sm font-medium text-white"
+                className="flex items-center gap-2 rounded-lg bg-purple-600 px-6 py-3 text-sm font-medium text-white hover:bg-purple-700 transition"
               >
                 Get Started
                 <ArrowRight className="h-4 w-4" />
               </motion.button>
 
-              <button className="rounded-lg border border-gray-300 px-6 py-3 text-sm">
+              <button className="rounded-lg border border-purple-300 px-6 py-3 text-sm text-purple-700 hover:bg-purple-50 transition">
                 Explore Jobs
               </button>
             </div>
@@ -48,7 +50,7 @@ export default function HomePage() {
       </section>
 
       {/* FEATURES */}
-      <section className="border-t bg-gray-50">
+      <section className="border-t bg-purple-50">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -94,7 +96,7 @@ export default function HomePage() {
       </section>
 
       {/* TRUST / STATS */}
-      <section className="border-t bg-gray-50">
+      <section className="border-t bg-purple-50">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="grid gap-8 text-center md:grid-cols-3">
             <Stat value="10k+" label="Professionals" />
@@ -112,15 +114,15 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-2xl bg-black px-10 py-16 text-center text-white"
+            className="rounded-2xl bg-gradient-to-r from-purple-600 to-purple-700 px-10 py-16 text-center text-white"
           >
             <h2 className="text-3xl font-semibold">
               Ready to Build Your Future?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-white/70">
-              Whether you're hiring, job hunting, or growing your personal brand — get started today.
+              Whether youre hiring, job hunting, or growing your personal brand — get started today.
             </p>
-            <button className="mt-8 rounded-lg bg-white px-6 py-3 text-sm font-medium text-black">
+            <button className="mt-8 rounded-lg bg-white px-6 py-3 text-sm font-medium text-purple-700 hover:bg-purple-50 transition">
               Join the Platform
             </button>
           </motion.div>
@@ -137,10 +139,12 @@ export default function HomePage() {
   );
 }
 
-function Feature({ icon, title, description }: any) {
+interface FeatureProps { icon: React.ReactNode; title: string; description: string; }
+
+function Feature({ icon, title, description }: FeatureProps) {
   return (
-    <div className="rounded-xl border bg-white p-6">
-      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100">
+    <div className="rounded-xl border border-purple-100 bg-white p-6 hover:border-purple-300 transition">
+      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 text-purple-700">
         {icon}
       </div>
       <h3 className="font-medium">{title}</h3>
@@ -149,16 +153,20 @@ function Feature({ icon, title, description }: any) {
   );
 }
 
-function Step({ number, title }: any) {
+interface StepProps { number: string; title: string; }
+
+function Step({ number, title }: StepProps) {
   return (
     <div>
-      <span className="text-sm text-gray-400">{number}</span>
+      <span className="text-sm text-purple-400">{number}</span>
       <h4 className="mt-2 text-lg font-medium">{title}</h4>
     </div>
   );
 }
 
-function Stat({ value, label }: any) {
+interface StatProps { value: string; label: string; }
+
+function Stat({ value, label }: StatProps) {
   return (
     <div>
       <h3 className="text-3xl font-semibold">{value}</h3>
